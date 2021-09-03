@@ -57,7 +57,9 @@ export default {
             this.hide();
             // ugly, but we want to give hide 1 sec pause until we load the next video
             setTimeout(() => {
-                this.$refs.video.load();
+                if (this.$refs.video) {
+                    this.$refs.video.load();
+                }
                 this.$emit('loading');
             }, 1000);
         },
